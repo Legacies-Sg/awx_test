@@ -1,0 +1,16 @@
+---
+- name: Lister les dossiers dans un chemin spécifique
+  hosts: localhost
+  vars:
+    chemin: "/root/snap"  # Remplacez ceci par le chemin souhaité
+
+  tasks:
+    - name: Lister les dossiers
+      find:
+        paths: "{{ chemin }}"
+        file_type: directory
+      register: resultats
+
+    - name: Afficher les dossiers trouvés
+      debug:
+        var: resultats.files
