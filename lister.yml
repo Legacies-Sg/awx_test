@@ -1,0 +1,15 @@
+---
+- name: Lister le contenu d'un fichier
+  hosts: localhost
+  vars:
+    chemin_fichier: "/root/list.yml"  # Remplacez ceci par le chemin de votre fichier
+
+  tasks:
+    - name: Lire le contenu du fichier
+      slurp:
+        src: "{{ chemin_fichier }}"
+      register: contenu_fichier
+
+    - name: Décoder et afficher le contenu du fichier
+      debug:
+        msg: "{{ contenu_fichier.content | b64decode }}"
