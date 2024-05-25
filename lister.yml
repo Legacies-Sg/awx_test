@@ -1,6 +1,6 @@
 ---
 - name: Exécuter les commandes whoami et pwd
-  hosts: all
+  hosts: localhost
   tasks:
     - name: Exécuter la commande whoami
       command: whoami
