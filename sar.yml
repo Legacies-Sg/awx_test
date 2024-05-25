@@ -1,0 +1,19 @@
+---
+- name: Exécuter les commandes whoami et pwd
+  hosts: localhost
+  tasks:
+    - name: Exécuter la commande whoami
+      command: whoami
+      register: resultat_whoami
+
+    - name: Afficher le résultat de whoami
+      debug:
+        msg: "L'utilisateur actuel est: {{ resultat_whoami.stdout }}"
+
+    - name: Exécuter la commande pwd
+      command: pwd
+      register: resultat_pwd
+
+    - name: Afficher le résultat de pwd
+      debug:
+        msg: "Le répertoire courant est: {{ resultat_pwd.stdout }}"
