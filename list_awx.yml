@@ -1,8 +1,8 @@
 ---
 - name: Lister les dossiers dans un chemin spécifique
-  hosts: localhost
+  hosts: OLVM_Engine
   vars:
-    chemin: "/root/snap"  # Remplacez ceci par le chemin souhaité
+    chemin: "/"  # Remplacez ceci par le chemin souhaité
 
   tasks:
     - name: Lister les dossiers
