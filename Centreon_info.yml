@@ -1,0 +1,14 @@
+---
+# centreon show hosts
+- name: show hosts
+  hosts: centreon
+  remote_user: centreon
+  tasks:
+  - name: show hosts
+    shell:  centreon -u admin -p 'Centreon!123' -o HOST -a show
+      #shell: cat test
+    register: content
+
+  - name: Display
+    debug:
+      var: content.stdout
